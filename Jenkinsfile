@@ -5,6 +5,11 @@ pipeline {
         choice(choices: ['YES','NO'],description:'Start the web app?',name:'START')
     }
     stages {
+        stage('Initialize'){
+            steps{
+                currentBuild.description = "RESTART: ${params.START}"
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -16,7 +21,9 @@ pipeline {
         }
         stage('Test') {
             when{
-                parameters.START == 'YES'
+                expression{
+                    params.START == 'YES';
+                }
             }
             steps {
                 echo 'Testing..'
