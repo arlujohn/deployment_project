@@ -15,6 +15,9 @@ pipeline {
             }
         }
         stage('Test') {
+            when{
+                parameters.START == 'YES'
+            }
             steps {
                 echo 'Testing..'
                 echo 'Running the Web App'
