@@ -7,7 +7,9 @@ pipeline {
     stages {
         stage('Initialize'){
             steps{
-                currentBuild.description = "RESTART: ${params.START}"
+                script{
+                    currentBuild.description = "RESTART: ${params.START}"
+                }
             }
         }
         stage('Build') {
