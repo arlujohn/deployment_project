@@ -17,11 +17,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                echo 'Running the Web App'
+                dir('MySampleWebsite'){
+                    sh "python3 manage.py runserver"
+                }
             }
         }
     }
