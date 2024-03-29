@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    environment{
-
-    }
+    //environment{}
     parameters{
         choice(choices: ['YES','NO'],description:'Start the web app?',name:'START')
     }
