@@ -35,5 +35,8 @@ pipeline {
                 }
             }
         }
+        stage('Clean Workspace'){
+            cleanWs()
+        }
     }
 }
